@@ -13,7 +13,28 @@ The examples are HTML reconstructions of product layouts with illustrative data,
 
 ## Use the CSS and JavaScript
 
-Download [`dist/infernal.css`](dist/infernal.css) and, if desired, [`dist/infernal.js`](dist/infernal.js). Or import from the GitHub Pages static asset path **after Pages is enabled**:
+Download [`dist/infernal.css`](dist/infernal.css) and, if desired, [`dist/infernal.js`](dist/infernal.js). No npm package publication is needed: [jsDelivr's GitHub CDN](https://www.jsdelivr.com/?docs=gh) can serve both files directly from this public repository.
+
+### CDN (recommended for static sites)
+
+Use a **release tag** so existing apps don't change unexpectedly. Once the `v0.1.0` tag is created:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dragonshorn-Studios/infernal-saas@v0.1.0/dist/infernal.css">
+<script type="module">
+  import { bindTabs } from 'https://cdn.jsdelivr.net/gh/Dragonshorn-Studios/infernal-saas@v0.1.0/dist/infernal.js';
+  bindTabs(document);
+</script>
+```
+
+Until the tag exists, use the already committed `main` branch URL for testing (not production):
+
+```text
+https://cdn.jsdelivr.net/gh/Dragonshorn-Studios/infernal-saas@main/dist/infernal.css
+https://cdn.jsdelivr.net/gh/Dragonshorn-Studios/infernal-saas@main/dist/infernal.js
+```
+
+Or import from the GitHub Pages static asset path:
 
 ```html
 <html lang="en" data-if-theme="dark" data-if-brand="machine">
@@ -31,7 +52,7 @@ const stop = bindTabs(document);
 // stop() when the host view is destroyed.
 ```
 
-The distributable is also checked into [`dist/`](dist/), so you can use a [jsDelivr GitHub URL](https://www.jsdelivr.com/?docs=gh) such as `https://cdn.jsdelivr.net/gh/Dragonshorn-Studios/infernal-saas@main/dist/infernal.css` immediately after the initial commit. For production, pin a **tag or full commit SHA**, not the mutable `main` branch. The published Pages `/assets/v0.1.0/` path is a versioned *path*, but deploys from the same repository and is not immutable by itself.
+The distributable is checked into [`dist/`](dist/). For production, pin a **tag or full commit SHA**, not the mutable `main` branch. Publish each new version by updating `package.json`'s version, building, committing `dist/`, and creating a matching Git tag. The published Pages `/assets/v0.1.0/` path is a versioned *path*, but deploys from the same repository and is not immutable by itself.
 
 This repository is intentionally marked `private: true` in `package.json` to prevent accidental npm publication. That setting does **not** make the GitHub repository private.
 
@@ -71,4 +92,4 @@ In the repository, open **Settings → Pages → Build and deployment → Source
 
 Reusable components live in `src/infernal.css`, while the layout CSS for full-screen reconstructions is under `examples/screens.css`. Product application logic remains in the Sumomo and Maomao repositories. This project intentionally has no third-party runtime dependency.
 
-**License:** No license has been selected yet. The repository being public does not grant broad reuse rights to unrelated parties. Choose an explicit license if you want to distribute it outside your own projects.
+**License:** [MIT](LICENSE) © 2026 Dragonshorn Studios.
