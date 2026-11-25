@@ -1,0 +1,17 @@
+{
+  "name": "@dragonshorn-studios/infernal-saas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Framework-neutral Infernal SaaS UI tokens, components, and optional navigation behaviors",
+  "type": "module",
+  "files": ["dist/infernal.css", "dist/infernal.js"],
+  "exports": {
+    ".": "./dist/infernal.js",
+    "./styles.css": "./dist/infernal.css"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
